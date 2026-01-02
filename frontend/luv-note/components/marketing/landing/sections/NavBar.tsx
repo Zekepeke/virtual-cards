@@ -1,5 +1,5 @@
 // app/components/landing/sections/NavBar.tsx
-import { RomanticButton } from "../romantic-button";
+import { RomanticButton } from "../../../romantic-button";
 import { Heart } from "lucide-react";
 
 export function NavBar() {

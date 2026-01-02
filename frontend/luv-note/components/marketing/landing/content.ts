@@ -10,12 +10,13 @@ import {
   Mail,
   Star,
   Send,
+  Check,
 } from "lucide-react";
 
 export type Template = {
   id: number;
   title: string;
-  color: string; // tailwind gradient classes
+  color: string;
   icon: LucideIcon;
   description: string;
 };
@@ -40,7 +41,22 @@ export type Step = {
   icon: LucideIcon;
 };
 
-// For tags/badges in the hero
+export type PricingPlan = {
+  name: string;
+  price: string;
+  priceNote: string;
+  badge?: string;
+  features: string[];
+  buttonLabel: string;
+  buttonVariant: "ghost" | "primary";
+  highlighted?: boolean;
+};
+
+export type FooterColumn = {
+  title: string;
+  links: { label: string; href: string }[];
+};
+
 export const heroBadge = {
   text: "For Long-Distance Love",
   icon: Sparkles,
@@ -154,3 +170,97 @@ export const steps: Step[] = [
     icon: Send,
   },
 ];
+
+export const pricing = {
+  heading: "Simple, Honest Pricing",
+  subheading: "Start free, upgrade when you're ready for more",
+  plans: [
+    {
+      name: "Free",
+      price: "$0",
+      priceNote: "forever",
+      features: [
+        "5 cards per month",
+        "Basic templates",
+        "Text messages",
+        "Scheduled delivery",
+        "Private links",
+      ],
+      buttonLabel: "Get Started Free",
+      buttonVariant: "ghost",
+      highlighted: false,
+    },
+    {
+      name: "Premium",
+      price: "$9.99",
+      priceNote: "per month",
+      badge: "Most Popular",
+      features: [
+        "Unlimited cards",
+        "All premium templates",
+        "Photo & video messages",
+        "Custom designs",
+        "Gift card integration",
+        "Priority support",
+      ],
+      buttonLabel: "Start Premium Trial",
+      buttonVariant: "primary",
+      highlighted: true,
+    },
+  ] satisfies PricingPlan[],
+};
+
+export const cta = {
+  heading: "Ready to Send Your First Love Card?",
+  subheading:
+    "Join thousands of couples using LuvNote to stay connected across any distance",
+  footnote: "No credit card required • Free forever plan available",
+};
+
+export const footer = {
+  brand: "LuvNote",
+  copyright: "© 2026 LuvNote. Made with love for long-distance couples.",
+  socials: [
+    { label: "Twitter", href: "#" },
+    { label: "Instagram", href: "#" },
+    { label: "Facebook", href: "#" },
+  ],
+  columns: [
+    {
+      title: "Product",
+      links: [
+        { label: "Features", href: "#how" },
+        { label: "Templates", href: "#templates" },
+        { label: "Pricing", href: "#pricing" },
+        { label: "FAQ", href: "#" },
+      ],
+    },
+    {
+      title: "Company",
+      links: [
+        { label: "About", href: "#" },
+        { label: "Blog", href: "#" },
+        { label: "Careers", href: "#" },
+        { label: "Contact", href: "#" },
+      ],
+    },
+    {
+      title: "Resources",
+      links: [
+        { label: "Help Center", href: "#" },
+        { label: "Community", href: "#" },
+        { label: "Guides", href: "#" },
+        { label: "API", href: "#" },
+      ],
+    },
+    {
+      title: "Legal",
+      links: [
+        { label: "Privacy", href: "#" },
+        { label: "Terms", href: "#" },
+        { label: "Security", href: "#" },
+        { label: "Cookies", href: "#" },
+      ],
+    },
+  ] satisfies FooterColumn[],
+};
