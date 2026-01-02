@@ -1,4 +1,3 @@
-// app/components/landing/sections/Hero.tsx
 "use client";
 
 import { motion } from "motion/react";

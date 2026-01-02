@@ -1,4 +1,3 @@
-// app/components/landing/sections/PricingSection.tsx
 "use client";
 
 import { pricing } from "../content";

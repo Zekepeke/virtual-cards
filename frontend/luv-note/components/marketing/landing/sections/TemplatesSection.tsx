@@ -1,4 +1,3 @@
-// app/components/landing/sections/TemplatesSection.tsx
 "use client";
 
 import { motion } from "motion/react";

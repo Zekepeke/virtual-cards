@@ -1,4 +1,3 @@
-// app/components/landing/sections/FooterSection.tsx
 import { footer } from "../content";
 import { Heart } from "lucide-react";
 

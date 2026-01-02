@@ -1,4 +1,3 @@
-// app/components/landing/sections/CtaSection.tsx
 "use client";
 
 import React, { useState } from "react";
