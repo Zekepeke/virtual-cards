@@ -2,6 +2,7 @@
 
 import { RomanticButton } from "../romantic-button";
 import { RomanticInput } from "../romantic-input";
+import { Globe } from "lucide-react";
 
 export function PartnerInfoStep({
   partnerName,
@@ -20,6 +21,19 @@ export function PartnerInfoStep({
   onSkip: () => void;
   loading?: boolean;
 }) {
+  const timezones = [
+  { value: 'America/New_York', label: 'Eastern Time (ET)' },
+  { value: 'America/Chicago', label: 'Central Time (CT)' },
+  { value: 'America/Denver', label: 'Mountain Time (MT)' },
+  { value: 'America/Los_Angeles', label: 'Pacific Time (PT)' },
+  { value: 'America/Anchorage', label: 'Alaska Time (AKT)' },
+  { value: 'Pacific/Honolulu', label: 'Hawaii Time (HT)' },
+  { value: 'Europe/London', label: 'London (GMT)' },
+  { value: 'Europe/Paris', label: 'Paris (CET)' },
+  { value: 'Asia/Tokyo', label: 'Tokyo (JST)' },
+  { value: 'Asia/Shanghai', label: 'Shanghai (CST)' },
+  { value: 'Australia/Sydney', label: 'Sydney (AEDT)' }
+];
   return (
     <div className="space-y-6">
       <div>
@@ -39,19 +53,30 @@ export function PartnerInfoStep({
             className="w-full bg-white"
           />
         </div>
-
-        <div>
-          <label className="text-[var(--charcoal)] block mb-2">Timezone</label>
-          <RomanticInput
+        
+        <div className="mb-6">
+          <label className="block text-[var(--charcoal)] mb-2 flex items-center gap-2">
+            <Globe size={16} className="text-[var(--rose)]" />
+            Your timezone
+          </label>
+          <select
             value={timezone}
             onChange={(e) => setTimezone(e.target.value)}
-            placeholder="America/Chicago"
-            className="w-full bg-white"
-          />
-          <p className="text-[var(--charcoal-lighter)] text-xs mt-2">
-            Example: <code>America/Chicago</code>
+            className="w-full px-4 py-3 rounded-[var(--radius-lg)] border border-[var(--border)] 
+                      focus:border-[var(--rose)] focus:outline-none focus:ring-2 focus:ring-[var(--rose)]/20
+                      transition-all text-[var(--charcoal)] bg-white"
+          >
+            {timezones.map((tz) => (
+              <option key={tz.value} value={tz.value}>
+                {tz.label}
+              </option>
+            ))}
+          </select>
+          <p className="text-sm text-[var(--charcoal-lighter)] mt-2">
+            This helps us schedule cards at the perfect time
           </p>
         </div>
+        
       </div>
 
       <div className="flex gap-3">

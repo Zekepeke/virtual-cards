@@ -37,7 +37,7 @@ export function Hero() {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start mb-8">
-              <Link href="/login?intent=create&next=/create">'
+              <Link href="/login?intent=create&next=/create">
                 <RomanticButton variant="primary" className="group">
                   Create a Love Card
                   <Heart size={18} className="ml-2 group-hover:scale-110 transition-transform" />

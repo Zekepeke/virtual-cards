@@ -112,24 +112,33 @@ export function SignInMethods({ redirectTo = "/auth/callback" }: Props) {
       </div>
 
       <div className="grid grid-cols-1 gap-3">
-        <RomanticButton
-          variant="ghost"
-          className="w-full"
-          onClick={() => signInWithOAuth("google")}
-          disabled={loading}
-        >
-          Continue with Google
-        </RomanticButton>
+        <div className="space-y-3">
+          <button
+            className="w-full px-4 py-3 rounded-[var(--radius-lg)] border-2 border-[var(--border)] 
+                      bg-white hover:border-[var(--rose)] transition-all flex items-center justify-center gap-3
+                      text-[var(--charcoal)] hover:shadow-[var(--shadow-md)]"
+          >
+            <svg width="18" height="18" viewBox="0 0 18 18">
+              <path fill="#4285F4" d="M17.64 9.2c0-.637-.057-1.251-.164-1.84H9v3.481h4.844c-.209 1.125-.843 2.078-1.796 2.717v2.258h2.908c1.702-1.567 2.684-3.874 2.684-6.615z"/>
+              <path fill="#34A853" d="M9 18c2.43 0 4.467-.806 5.956-2.184l-2.908-2.258c-.806.54-1.837.86-3.048.86-2.344 0-4.328-1.584-5.036-3.711H.957v2.332C2.438 15.983 5.482 18 9 18z"/>
+              <path fill="#FBBC05" d="M3.964 10.707c-.18-.54-.282-1.117-.282-1.707s.102-1.167.282-1.707V4.961H.957C.347 6.175 0 7.55 0 9s.348 2.825.957 4.039l3.007-2.332z"/>
+              <path fill="#EA4335" d="M9 3.582c1.321 0 2.508.454 3.44 1.345l2.582-2.58C13.463.891 11.426 0 9 0 5.482 0 2.438 2.017.957 4.961L3.964 7.29C4.672 5.163 6.656 3.582 9 3.582z"/>
+            </svg>
+            Continue with Google
+          </button>
 
-        <RomanticButton
-          variant="ghost"
-          className="w-full"
-          onClick={() => signInWithOAuth("apple")}
-          disabled={loading}
-        >
-          <Apple size={18} className="mr-2" />
-          Continue with Apple
-        </RomanticButton>
+          <button
+            className="w-full px-4 py-3 rounded-[var(--radius-lg)] border-2 border-[var(--charcoal)] 
+                      bg-[var(--charcoal)] hover:bg-[var(--charcoal)]/90 transition-all flex items-center justify-center gap-3
+                      text-white hover:shadow-[var(--shadow-md)]"
+          >
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="currentColor">
+              <path d="M14.94 5.19A4.38 4.38 0 0 0 16 2.53a4.44 4.44 0 0 0-2.87 1.47 4.14 4.14 0 0 0-1.06 2.64 3.6 3.6 0 0 0 2.87-1.45zm2.52 7.44a9.49 9.49 0 0 1-1.25 2.19c-.75 1-1.53 2-2.75 2s-1.57-.78-2.93-.78-1.78.77-2.91.8-2.09-1.09-2.86-2.16a10.67 10.67 0 0 1-1.83-5.95c0-3.5 2.27-5.35 4.51-5.35 1.19 0 2.18.78 2.93.78s1.85-.96 3.13-.96a4.16 4.16 0 0 1 3.52 1.82 4.11 4.11 0 0 0-2.06 3.52 4.17 4.17 0 0 0 2.5 3.81z"/>
+            </svg>
+            Continue with Apple
+          </button>
+        </div>
+
       </div>
 
       {error ? (

@@ -14,9 +14,7 @@ export function OnboardingWizard({ userId }: { userId: string }) {
 
   const [step, setStep] = useState<Step>("partner");
   const [partnerName, setPartnerName] = useState("");
-  const [timezone, setTimezone] = useState(
-    Intl.DateTimeFormat().resolvedOptions().timeZone || "America/Chicago"
-  );
+  const [timezone, setTimezone] = useState('America/Chicago');
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
