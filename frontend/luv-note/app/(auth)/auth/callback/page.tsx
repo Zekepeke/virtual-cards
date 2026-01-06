@@ -9,36 +9,50 @@ export default function AuthCallbackPage() {
   const router = useRouter();
   const params = useSearchParams();
   const [error, setError] = useState<string | null>(null);
-  
-  // Move next outside of useEffect
+
   const next = params.get("next") || "/onboarding";
 
   useEffect(() => {
-    const code = params.get("code");
+    let isDone = false;
 
-    async function finalizeAuth() {
-      try {
-        // Modern Supabase uses PKCE flow with a code parameter
-        if (code) {
-          const { error } = await supabase.auth.exchangeCodeForSession(code);
-          
-          if (error) throw error;
+    async function maybeRedirectIfSessionExists() {
+      // Give Supabase a chance to initialize & persist session from URL hash
+      const { data, error } = await supabase.auth.getSession();
+      if (error) throw error;
 
-          // Session is now stored automatically
-          router.replace(next);
-          router.refresh();
-          return;
-        }
-
-        // If no code, redirect to login
-        router.replace("/login");
-      } catch (e: any) {
-        setError(e?.message ?? "Failed to finish login.");
+      if (data.session && !isDone) {
+        isDone = true;
+        router.replace(next);
+        router.refresh();
       }
     }
 
-    finalizeAuth();
-  }, [params, router, supabase, next]);
+    // 1) Subscribe to auth events (will fire SIGNED_IN once session is set from URL)
+    const { data: sub } = supabase.auth.onAuthStateChange((event, session) => {
+      if (event === "SIGNED_IN" && session && !isDone) {
+        isDone = true;
+        router.replace(next);
+        router.refresh();
+      }
+    });
+
+    // 2) Also do an immediate check (covers cases where session is already present)
+    maybeRedirectIfSessionExists().catch((e: any) => {
+      setError(e?.message ?? "Auth callback failed.");
+    });
+
+    // 3) Safety timeout: if nothing happens, send to login
+    const t = setTimeout(async () => {
+      if (isDone) return;
+      const { data } = await supabase.auth.getSession();
+      if (!data.session) router.replace(`/login?next=${encodeURIComponent(next)}`);
+    }, 2500);
+
+    return () => {
+      clearTimeout(t);
+      sub.subscription.unsubscribe();
+    };
+  }, [next, router, supabase]);
 
   return (
     <div className="min-h-screen bg-[var(--cream)] flex items-center justify-center px-6">

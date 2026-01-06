@@ -1,10 +1,8 @@
+// app/(auth)/callback/route.tsx
 import { NextResponse } from "next/server";
 
 export async function GET(req: Request) {
   const url = new URL(req.url);
-  const next = url.searchParams.get("next") || "/auth/callback";
-
-  // Supabase sets the session in the browser automatically for OAuth.
-  // For magic links, Supabase also handles it client-side when link opens.
-  return NextResponse.redirect(new URL(next, url.origin));
+  // Redirect to the actual auth callback page
+  return NextResponse.redirect(new URL("/auth/callback" + url.search + url.hash, url.origin));
 }
