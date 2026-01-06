@@ -6,6 +6,7 @@ import { OpenCardAnimation } from "../../../open-card-animation";
 import { SparkleDecoration } from "../../../micro-illustrations";
 import { heroBadge } from "../content";
 import { Heart, Play, Check, Sparkles } from "lucide-react";
+import Link from "next/link";
 
 export function Hero() {
   const BadgeIcon = heroBadge.icon;
@@ -36,10 +37,12 @@ export function Hero() {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start mb-8">
-              <RomanticButton variant="primary" className="group">
-                Create a Love Card
-                <Heart size={18} className="ml-2 group-hover:scale-110 transition-transform" />
-              </RomanticButton>
+              <Link href="/login?intent=create&next=/create">'
+                <RomanticButton variant="primary" className="group">
+                  Create a Love Card
+                  <Heart size={18} className="ml-2 group-hover:scale-110 transition-transform" />
+               </RomanticButton>
+              </Link>
 
               <RomanticButton variant="ghost" className="group">
                 <Play size={18} className="mr-2" />

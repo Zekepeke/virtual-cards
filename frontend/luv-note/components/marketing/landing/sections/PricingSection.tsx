@@ -5,6 +5,7 @@ import { RomanticCard } from "../../../romantic-card";
 import { RomanticButton } from "../../../romantic-button";
 import { SparkleDecoration } from "../../../micro-illustrations";
 import { Check } from "lucide-react";
+import Link from "next/link";
 
 export function PricingSection() {
   return (
@@ -55,9 +56,16 @@ export function PricingSection() {
                 ))}
               </ul>
 
-              <RomanticButton variant={plan.buttonVariant} className="w-full">
-                {plan.buttonLabel}
-              </RomanticButton>
+              <Link
+                href={`/login?intent=signup&plan=${plan.name.toLowerCase()}&next=/onboarding`}
+              >
+                <RomanticButton
+                  variant={plan.highlighted ? "primary" : "ghost"}
+                  className="w-full"
+                >
+                  {plan.buttonLabel}
+                </RomanticButton>
+              </Link>
             </RomanticCard>
           ))}
         </div>

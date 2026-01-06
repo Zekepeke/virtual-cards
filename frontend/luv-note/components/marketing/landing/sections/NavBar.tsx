@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { RomanticButton } from "../../../romantic-button";
 import { Heart } from "lucide-react";
 
@@ -23,9 +24,11 @@ export function NavBar() {
             </a>
           </div>
 
-          <RomanticButton variant="ghost" className="hidden md:block px-6 py-2">
-            Sign In
-          </RomanticButton>
+          <Link href="/login?intent=signin&next=/dashboard">
+            <RomanticButton variant="ghost" className="hidden md:block px-6 py-2">
+              Sign In
+            </RomanticButton>
+          </Link>
         </div>
       </div>
     </nav>

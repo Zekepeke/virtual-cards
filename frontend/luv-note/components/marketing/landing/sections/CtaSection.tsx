@@ -6,6 +6,7 @@ import { cta } from "../content";
 import { RomanticInput } from "../../../romantic-input";
 import { RomanticButton } from "../../../romantic-button";
 import { Heart, Mail, Sparkles } from "lucide-react";
+import Link from "next/link";
 
 export function CtaSection() {
   const [email, setEmail] = useState("");
@@ -44,9 +45,13 @@ export function CtaSection() {
               onChange={(e) => setEmail(e.target.value)}
               className="max-w-xs bg-white"
             />
-            <RomanticButton variant="secondary" className="whitespace-nowrap">
-              Create Free Account
-            </RomanticButton>
+            <Link
+              href={`/login?intent=signup&plan=free&next=/onboarding&email=${encodeURIComponent(email)}`}
+            >
+              <RomanticButton variant="secondary" className="whitespace-nowrap">
+                Create Free Account
+              </RomanticButton>
+            </Link>
           </div>
 
           <p className="text-white/70">{cta.footnote}</p>
