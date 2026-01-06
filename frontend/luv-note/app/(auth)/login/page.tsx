@@ -1,9 +1,14 @@
-import React from 'react'
+import { AuthShell } from "@/components/auth/AuthShell";
+import { SignInMethods } from "@/components/auth/SignInMethods";
 
-const page = () => {
-return (
-    <div>page</div>
-)
+export default function LoginPage() {
+  return (
+    <AuthShell
+      title="Welcome back"
+      subtitle="Sign in with email, Google, or Apple."
+      footer={<span>We’ll never share your email.</span>}
+    >
+      <SignInMethods redirectTo="/onboarding" />
+    </AuthShell>
+  );
 }
-
-export default page
