@@ -9,47 +9,28 @@ export default function AuthCallbackPage() {
   const router = useRouter();
   const params = useSearchParams();
   const [error, setError] = useState<string | null>(null);
+  
+  // Move next outside of useEffect
+  const next = params.get("next") || "/onboarding";
 
   useEffect(() => {
-    const next = params.get("next") || "/onboarding";
+    const code = params.get("code");
 
     async function finalizeAuth() {
       try {
-        // 1) If using PKCE flow, Supabase redirects with ?code=...
-        const code = params.get("code");
-        if (code && typeof (supabase.auth as any).exchangeCodeForSession === "function") {
-          const { error } = await (supabase.auth as any).exchangeCodeForSession(code);
+        // Modern Supabase uses PKCE flow with a code parameter
+        if (code) {
+          const { error } = await supabase.auth.exchangeCodeForSession(code);
+          
           if (error) throw error;
 
+          // Session is now stored automatically
           router.replace(next);
           router.refresh();
           return;
         }
 
-        // 2) If using implicit flow, Supabase redirects with #access_token=... in the hash
-        if (typeof window !== "undefined" && window.location.hash) {
-          const hashParams = new URLSearchParams(window.location.hash.slice(1));
-          const access_token = hashParams.get("access_token");
-          const refresh_token = hashParams.get("refresh_token");
-
-          if (access_token && refresh_token) {
-            // Works in both v1 and v2
-            const { error } = await supabase.auth.setSession({
-              access_token,
-              refresh_token,
-            });
-            if (error) throw error;
-
-            // Clean up the URL hash so tokens don't remain in the address bar
-            window.history.replaceState({}, document.title, window.location.pathname + window.location.search);
-
-            router.replace(next);
-            router.refresh();
-            return;
-          }
-        }
-
-        // If neither flow is present, send back to login
+        // If no code, redirect to login
         router.replace("/login");
       } catch (e: any) {
         setError(e?.message ?? "Failed to finish login.");
@@ -57,7 +38,7 @@ export default function AuthCallbackPage() {
     }
 
     finalizeAuth();
-  }, [params, router, supabase]);
+  }, [params, router, supabase, next]);
 
   return (
     <div className="min-h-screen bg-[var(--cream)] flex items-center justify-center px-6">
