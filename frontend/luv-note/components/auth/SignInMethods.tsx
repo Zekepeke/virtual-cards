@@ -2,9 +2,9 @@
 
 import React, { useMemo, useState } from "react";
 import { useSearchParams } from "next/navigation";
-import { createSupabaseBrowserClient } from "@/lib/supabase/client";
-import { RomanticInput } from "@/app/components/romantic-input";
-import { RomanticButton } from "@/app/components/romantic-button";
+import { createSupabaseBrowserClient } from "@/lib/supbabase/client";
+import { RomanticInput } from "../romantic-input";
+import { RomanticButton } from "../romantic-button";
 import { Mail, Apple } from "lucide-react";
 
 type Props = {
