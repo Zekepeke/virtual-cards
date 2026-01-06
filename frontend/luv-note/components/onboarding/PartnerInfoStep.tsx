@@ -3,6 +3,7 @@
 import { RomanticButton } from "../romantic-button";
 import { RomanticInput } from "../romantic-input";
 import { Globe } from "lucide-react";
+import { timezones } from "./content";
 
 export function PartnerInfoStep({
   partnerName,
@@ -21,19 +22,6 @@ export function PartnerInfoStep({
   onSkip: () => void;
   loading?: boolean;
 }) {
-  const timezones = [
-  { value: 'America/New_York', label: 'Eastern Time (ET)' },
-  { value: 'America/Chicago', label: 'Central Time (CT)' },
-  { value: 'America/Denver', label: 'Mountain Time (MT)' },
-  { value: 'America/Los_Angeles', label: 'Pacific Time (PT)' },
-  { value: 'America/Anchorage', label: 'Alaska Time (AKT)' },
-  { value: 'Pacific/Honolulu', label: 'Hawaii Time (HT)' },
-  { value: 'Europe/London', label: 'London (GMT)' },
-  { value: 'Europe/Paris', label: 'Paris (CET)' },
-  { value: 'Asia/Tokyo', label: 'Tokyo (JST)' },
-  { value: 'Asia/Shanghai', label: 'Shanghai (CST)' },
-  { value: 'Australia/Sydney', label: 'Sydney (AEDT)' }
-];
   return (
     <div className="space-y-6">
       <div>
@@ -49,11 +37,11 @@ export function PartnerInfoStep({
           <RomanticInput
             value={partnerName}
             onChange={(e) => setPartnerName(e.target.value)}
-            placeholder="Alyssa"
+            placeholder="Amanda"
             className="w-full bg-white"
           />
         </div>
-        
+
         <div className="mb-6">
           <label className="block text-[var(--charcoal)] mb-2 flex items-center gap-2">
             <Globe size={16} className="text-[var(--rose)]" />
