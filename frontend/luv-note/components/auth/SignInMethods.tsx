@@ -2,17 +2,17 @@
 
 import React, { useMemo, useState } from "react";
 import { useSearchParams } from "next/navigation";
-import { createSupabaseBrowserClient } from "@/lib/supbabase/client";
+import { createSupabaseBrowserClient } from "@/lib/supabase/client";
 import { RomanticInput } from "../romantic-input";
 import { RomanticButton } from "../romantic-button";
 import { Mail, Apple } from "lucide-react";
 
 type Props = {
   /** where to send users after auth succeeds */
-  redirectTo?: string; // e.g. "/onboarding"
+  redirectTo?: string; // e.g. "/auth/callback"
 };
 
-export function SignInMethods({ redirectTo = "/onboarding" }: Props) {
+export function SignInMethods({ redirectTo = "/auth/callback" }: Props) {
   const supabase = useMemo(() => createSupabaseBrowserClient(), []);
   const params = useSearchParams();
 
@@ -33,7 +33,7 @@ export function SignInMethods({ redirectTo = "/onboarding" }: Props) {
         : "http://localhost:3000";
 
     // We’ll land here after OAuth/magic-link to finish the session + redirect.
-    const cb = new URL("/callback", base);
+    const cb = new URL("/auth/callback", base);
     cb.searchParams.set("next", next);
     if (intent) cb.searchParams.set("intent", intent);
     if (plan) cb.searchParams.set("plan", plan);

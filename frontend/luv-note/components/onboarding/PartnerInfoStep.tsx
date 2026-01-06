@@ -1,18 +1,7 @@
 "use client";
 
-import React from "react";
-import { RomanticInput } from "../romantic-input";
 import { RomanticButton } from "../romantic-button";
-
-type Props = {
-  partnerName: string;
-  timezone: string;
-  setPartnerName: (v: string) => void;
-  setTimezone: (v: string) => void;
-  onNext: () => void;
-  onSkip: () => void;
-  loading?: boolean;
-};
+import { RomanticInput } from "../romantic-input";
 
 export function PartnerInfoStep({
   partnerName,
@@ -22,13 +11,21 @@ export function PartnerInfoStep({
   onNext,
   onSkip,
   loading,
-}: Props) {
+}: {
+  partnerName: string;
+  timezone: string;
+  setPartnerName: (v: string) => void;
+  setTimezone: (v: string) => void;
+  onNext: () => void;
+  onSkip: () => void;
+  loading?: boolean;
+}) {
   return (
     <div className="space-y-6">
       <div>
-        <h2 className="text-[var(--charcoal)] mb-2">Quick setup</h2>
+        <h2 className="text-[var(--charcoal)] mb-2">A quick setup</h2>
         <p className="text-[var(--charcoal-lighter)]">
-          This helps us schedule cards at the right time.
+          Partner name + timezone helps scheduled cards land at the perfect moment.
         </p>
       </div>
 
@@ -38,7 +35,7 @@ export function PartnerInfoStep({
           <RomanticInput
             value={partnerName}
             onChange={(e) => setPartnerName(e.target.value)}
-            placeholder="Amanda"
+            placeholder="Alyssa"
             className="w-full bg-white"
           />
         </div>
@@ -52,7 +49,7 @@ export function PartnerInfoStep({
             className="w-full bg-white"
           />
           <p className="text-[var(--charcoal-lighter)] text-xs mt-2">
-            Tip: use IANA format like <code>America/Chicago</code>.
+            Example: <code>America/Chicago</code>
           </p>
         </div>
       </div>

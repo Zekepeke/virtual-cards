@@ -13,10 +13,6 @@ const cormorant = Cormorant({
   variable: "--font-cormorant",
 });
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
-  return (
-    <html lang="en" className={`${inter.variable} ${cormorant.variable}`}>
-      <body>{children}</body>
-    </html>
-  );
+export default function AppLayout({ children }: { children: React.ReactNode }) {
+  return <div>{children}</div>;
 }
