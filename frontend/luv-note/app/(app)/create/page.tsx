@@ -1,9 +1,5 @@
-import React from 'react'
+import TemplateGallery from "@/features/card_templates/TemplateGallery";
 
-const page = () => {
-  return (
-    <div>page</div>
-  )
+export default function Page() {
+  return <TemplateGallery mode="select" />;
 }
-
-export default page
