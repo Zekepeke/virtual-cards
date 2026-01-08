@@ -1,7 +1,6 @@
 import { NextResponse, type NextRequest } from "next/server";
 
 export default async function proxy(req: NextRequest) {
-  // ✅ DEV BYPASS (no magic link needed)
   if (process.env.AUTH_BYPASS === "true") {
     return NextResponse.next();
   }
