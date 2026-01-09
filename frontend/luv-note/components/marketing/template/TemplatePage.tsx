@@ -29,7 +29,7 @@ interface Template {
 
 type FilterType = 'all' | 'sweet' | 'funny' | 'minimal';
 
-export function TemplateGallery() {
+export function TemplatePage() {
   const [selectedFilter, setSelectedFilter] = useState<FilterType>('all');
   const [searchQuery, setSearchQuery] = useState('');
   const [premiumOnly, setPremiumOnly] = useState(false);
