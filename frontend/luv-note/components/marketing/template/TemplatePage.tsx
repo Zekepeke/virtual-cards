@@ -16,6 +16,7 @@ import {
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { templates, categories } from './content';
+import Logo from '@/components/Logo';
 
 interface Template {
   id: string;
@@ -73,12 +74,7 @@ export function TemplatePage() {
         <div className="max-w-7xl mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             {/* Logo */}
-            <div className="flex items-center gap-2">
-              <div className="w-9 h-9 rounded-full bg-gradient-to-br from-[var(--rose)] to-[var(--rose-deep)] flex items-center justify-center">
-                <Heart size={18} className="text-white" fill="white" />
-              </div>
-              <span className="text-lg text-[var(--charcoal)]">LuvNote</span>
-            </div>
+            <Logo />
 
             {/* Nav Links */}
             <div className="hidden md:flex items-center gap-8">

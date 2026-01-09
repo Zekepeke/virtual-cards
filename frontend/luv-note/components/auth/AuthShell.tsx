@@ -1,5 +1,6 @@
 import React from "react";
 import { Heart, Link } from "lucide-react";
+import Logo from "../Logo";
 
 type AuthShellProps = {
   title: string;
@@ -13,10 +14,7 @@ export function AuthShell({ title, subtitle, children, footer }: AuthShellProps)
     <div className="min-h-screen bg-[var(--cream)] flex items-center justify-center px-6 py-12">
       <div className="w-full max-w-md">
         <a href="/" className="block mb-8">
-          <div className="flex items-center justify-center gap-2 mb-8">
-            <Heart className="text-[var(--rose)]" fill="var(--rose)" size={26} />
-            <span className="text-[var(--charcoal)]">LuvNote</span>
-          </div>
+          <Logo className="flex items-center justify-center gap-2 mb-8"/>
         </a>
 
         <div className="bg-white/70 backdrop-blur-sm border border-[var(--border)] rounded-[var(--radius-xl)] shadow-[var(--shadow-md)] p-8">
