@@ -5,7 +5,6 @@ export default async function proxy(req: NextRequest) {
     return NextResponse.next();
   }
 
-  // ...keep the rest of your existing proxy.ts logic below...
   return NextResponse.next();
 }
 
