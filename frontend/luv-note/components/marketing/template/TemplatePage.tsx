@@ -1,4 +1,5 @@
-import React, { useState, useRef } from 'react';
+'use client';
+import React, { useState } from 'react';
 import { RomanticButton } from '@/components/romantic-button';
 import { RomanticCard } from '@/components/romantic-card';
 import { RomanticInput } from '@/components/romantic-input';
