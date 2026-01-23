@@ -44,10 +44,12 @@ export function Hero() {
                </RomanticButton>
               </Link>
 
-              <RomanticButton variant="ghost" className="group">
-                <Play size={18} className="mr-2" />
-                See How It Works
-              </RomanticButton>
+              <a href="/how-it-works">
+                <RomanticButton variant="ghost" className="group">
+                  <Play size={18} className="mr-2" />
+                  See How It Works
+                </RomanticButton>
+              </a>
             </div>
 
             <div className="flex items-center gap-6 justify-center md:justify-start text-[var(--charcoal-lighter)]">

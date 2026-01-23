@@ -57,7 +57,9 @@ export function TemplatesSection() {
           <p className="text-[var(--charcoal-lighter)] mb-6">
             Plus many more templates to explore
           </p>
-          <RomanticButton variant="secondary">Browse All Templates</RomanticButton>
+          <a href="/template">
+            <RomanticButton variant="secondary">Browse All Templates</RomanticButton>
+          </a>
         </div>
       </div>
     </section>

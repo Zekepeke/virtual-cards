@@ -4,7 +4,7 @@ import { SignInMethods } from "@/components/auth/SignInMethods";
 export default function LoginPage() {
   return (
     <AuthShell
-      title="Welcome back"
+      title="Welcome"
       subtitle="Sign in with email, Google, or Apple."
       footer={<span>We’ll never share your email.</span>}
     >
