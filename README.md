@@ -9,7 +9,7 @@ Web-based platform that changes digital greetings into emotion-first moments. Cr
 
 ## Overview
 
-**Core Value Proposition:** "I didn't forget, and I made this special."
+**Core Value Proposition:** "I didn't forget, and I made this special. And I got you this!"
 
 ### Tech Stack
 
