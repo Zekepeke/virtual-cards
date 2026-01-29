@@ -29,7 +29,7 @@ Web-based platform that changes digital greetings into emotion-first moments. Cr
 - **Animated Experience:** Recipient sees a beautiful animation when opening the card
 - **Keepsake Page:** Cards remain accessible as lasting memories
 - **Collaborative Cards:** Multiple people can sign the same card
-- **Gift Link Integration:** Include Venmo, PayPal, Cash App, or Amazon wishlist links (no money handling in MVP)
+- **Gift Link Integration(For the future):** Include Venmo, PayPal, Cash App, or Amazon wishlist links (no money handling in MVP)
 
 ### Coming Soon 
 
