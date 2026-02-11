@@ -23,22 +23,7 @@ Web-based platform that changes digital greetings into emotion-first moments. Cr
 ### Current MVP Features
 
 - **Card Creation:** Personalize cards with messages, photos, and short videos
-- **Occasion Selection:** Birthday, Anniversary, Holiday, or "Just Because"
-- **Scheduled Delivery:** Send now or schedule for a future date/time
-- **Shareable Links:** Distribute via SMS, WhatsApp, email, or any messaging platform
-- **Animated Experience:** Recipient sees a beautiful animation when opening the card
-- **Keepsake Page:** Cards remain accessible as lasting memories
-- **Collaborative Cards:** Multiple people can sign the same card
-- **Gift Link Integration(For the future):** Include Venmo, PayPal, Cash App, or Amazon wishlist links (no money handling in MVP)
-
-### Coming Soon 
-
-- In-app payment processing via Stripe Connect
-- Gift claiming and payout system
-- Mobile native apps (iOS/Android)
-- Advanced customization options
-
-## Prerequisites
+- **Occasion Select
 
 Before running project, ensure:
 
