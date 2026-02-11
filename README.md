@@ -33,7 +33,10 @@ Web-based platform that changes digital greetings into emotion-first moments. Cr
 
 ### Coming Soon 
 
-
+- In-app payment processing via Stripe Connect
+- Gift claiming and payout system
+- Mobile native apps (iOS/Android)
+- Advanced customization options
 
 ## Prerequisites
 
